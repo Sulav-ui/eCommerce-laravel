@@ -22,10 +22,12 @@
                     <a class="nav-link" href="#">Orders</a>
                 </li>
                 <li class="nav-item">
-                    <div class="input-group">
-                        <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-                        <button type="button" class="btn btn-outline-primary">search</button>
-                    </div>
+                    <form action="/search">
+                        <div class="input-group">
+                            <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" name="query" />
+                            <button type="button" class="btn btn-outline-primary">search</button>
+                        </div>
+                    </form>
                 </li>
             </ul>
 
