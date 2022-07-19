@@ -4,7 +4,8 @@
     <!-- Trending products -->
     <div class="col-sm-10">
         <div class="trending-wrapper">
-            <h1>Result for Products</h1>
+            <h4>My Cart Lists</h4>
+            <a class="btn btn-success" href="ordernow" style="margin-bottom: 10px;">Order Now</a>
             <!-- Trending Product cards -->
             @foreach ($products as $item)
             <div class="row searched-item cart-list-divider">
@@ -23,7 +24,7 @@
                     </div>
                 </div>
                 <div class="col-sm-3">
-                    <button class="btn btn-warning">Remove from Cart</button>
+                    <a href="/removecart/{{$item->cart_id}}" class="btn btn-warning">Remove from Cart</a>
                 </div>
             </div>
             <!-- <div class="card" style="float: left; margin:20px 85px 20px 0;">
@@ -40,7 +41,9 @@
                 </div>
             </div> -->
             @endforeach
+            <a class="btn btn-success" href="ordernow">Order Now</a>
         </div>
     </div>
+
 </div>
 @endsection
