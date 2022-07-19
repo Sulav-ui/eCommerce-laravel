@@ -7,7 +7,6 @@
         <!-- Trending Product cards -->
         @foreach ($products as $item)
         <div class="card" style="float: left; margin:20px 85px 20px 0;">
-
             <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
                 <img src="{{$item['gallery']}}" class="img-fluid" style="height: 200px;" />
                 <a href="detail/{{$item['id']}}">

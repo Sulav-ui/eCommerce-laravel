@@ -49,7 +49,7 @@ if (Session::has('user')) {
         <!-- Right elements -->
         <div class="d-flex align-items-center">
             <!-- Icon -->
-            <a class="text-reset me-3" href="#">
+            <a class="text-reset me-3" href="/cartlist">
                 <i class="fas fa-shopping-cart"></i>
                 <span class="badge rounded-pill badge-notification bg-danger">{{$total}}</span>
             </a>
