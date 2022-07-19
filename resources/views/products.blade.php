@@ -57,7 +57,6 @@
                     <h5 class="card-title">{{$item['name']}}</h5>
                 </a>
             </div>
-
         </div>
         @endforeach
     </div>

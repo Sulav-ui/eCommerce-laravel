@@ -1,3 +1,14 @@
+<?php
+
+use App\Http\Controllers\ProductController;
+use Illuminate\Support\Facades\Session;
+
+$total = 0;
+if (Session::has('user')) {
+    $total = ProductController::cartItem();
+}
+
+?>
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <!-- Container wrapper -->
@@ -25,7 +36,7 @@
                     <form action="/search">
                         <div class="input-group">
                             <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" name="query" />
-                            <button type="button" class="btn btn-outline-primary">search</button>
+                            <button class="btn btn-outline-primary">search</button>
                         </div>
                     </form>
                 </li>
@@ -40,30 +51,14 @@
             <!-- Icon -->
             <a class="text-reset me-3" href="#">
                 <i class="fas fa-shopping-cart"></i>
+                <span class="badge rounded-pill badge-notification bg-danger">{{$total}}</span>
             </a>
-
-            <!-- Notifications -->
-            <div class="dropdown">
-                <a class="text-reset me-3 dropdown-toggle hidden-arrow" href="#" id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-                    <i class="fas fa-bell"></i>
-                    <span class="badge rounded-pill badge-notification bg-danger">1</span>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-                    <li>
-                        <a class="dropdown-item" href="#">Some news</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="#">Another news</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </li>
-                </ul>
-            </div>
             <!-- Avatar -->
+            @if(Session:: has('user'))
             <div class="dropdown">
                 <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" id="navbarDropdownMenuAvatar" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
                     <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-circle" height="25" alt="Black and White Portrait of a Man" loading="lazy" />
+                    <h5 style="padding-top: 5px;">{{Session::get('user')['name']}}</h5>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
                     <li>
@@ -73,12 +68,16 @@
                         <a class="dropdown-item" href="#">Settings</a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="#">Logout</a>
+                        <a class="dropdown-item" href="/logout">Logout</a>
                     </li>
                 </ul>
             </div>
+            @else
+            <a class="btn " href="/login" role="button">Login</a>
         </div>
-        <!-- Right elements -->
+        @endif
+    </div>
+    <!-- Right elements -->
     </div>
     <!-- Container wrapper -->
 </nav>

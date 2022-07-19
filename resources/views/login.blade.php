@@ -1,18 +1,19 @@
 @extends('master')
 @section("content")
-<div class="container my-4 custom-login">
+<div class="container  custom-login" style="margin-top: 100px; margin-bottom:100px;">
     <div class="row  justify-content-center">
         <div class="col-sm-4 col-sm-offset-4">
-            <form method="POST" action="login">
+            <form method="POST" action="/login">
+                @csrf
                 <!-- Email input -->
                 <div class="form-outline mb-4">
-                    <input type="email" id="form1Example1" class="form-control" />
+                    <input type="email" id="form1Example1" name="email" class="form-control" />
                     <label class="form-label" for="form1Example1">Email address</label>
                 </div>
 
                 <!-- Password input -->
                 <div class="form-outline mb-4">
-                    <input type="password" id="form1Example2" class="form-control" />
+                    <input type="password" id="form1Example2" class="form-control" name="password" />
                     <label class="form-label" for="form1Example2">Password</label>
                 </div>
 

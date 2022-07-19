@@ -17,9 +17,21 @@
             <h3><small class="text-muted">Price : {{$product['price']}} NRP</small></h3>
             <h4><small class="text-muted">Category : {{$product['category']}} NRP</small></h4>
             <h4><small class="text-muted">Description : {{$product['description']}} NRP</small></h4>
-            <div class="button" style="margin-top: 78px;">
-                <button type="button" class="btn btn-success">Add to Cart</button>
-                <button type="button" class="btn btn-primary">Buy Now</button>
+            <div class="button row" style="margin-top: 20px;">
+                <div class="col-sm-3">
+                    <form action="/add_to_cart" method="POST">
+                        @csrf
+                        <input type="hidden" name="product_id" value="{{$product['id']}}">
+                        <button class="btn btn-success">Add to Cart</button>
+                    </form>
+                </div>
+                <div class="col-sm-3">
+                    <form action="/add_to_cart" method="POST">
+                        @csrf
+                        <button type="button" class="btn btn-primary">Buy Now</button>
+                    </form>
+                </div>
+
             </div>
 
         </div>
