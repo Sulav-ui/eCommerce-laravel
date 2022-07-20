@@ -30,13 +30,17 @@ if (Session::has('user')) {
                     <a class="nav-link" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Orders</a>
+                    @if(Session::has('user'))
+                    <a class="nav-link" href="/myorders">Orders</a>
+                    @else
+                    <a class="nav-link" href="/login">Orders</a>
+                    @endif
                 </li>
                 <li class="nav-item">
                     <form action="/search">
                         <div class="input-group">
                             <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" name="query" />
-                            <button class="btn btn-outline-primary">search</button>
+                            <button class="btn btn-outline-primary">Search</button>
                         </div>
                     </form>
                 </li>
@@ -73,7 +77,10 @@ if (Session::has('user')) {
                 </ul>
             </div>
             @else
-            <a class="btn " href="/login" role="button">Login</a>
+            <div class="ms-2 ">
+                <a class="btn " href="/login" role="button">Login</a>
+                <a class="btn " href="/register" role="button">Register</a>
+            </div>
         </div>
         @endif
     </div>
